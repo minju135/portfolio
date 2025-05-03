@@ -1,21 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-    <style>
-        h1 {
-            margin left: 100px
-        }
-    </style>
+<style>
+
+    h1 {
+        margin-left: 600px;
+        color: rgb(77, 77, 235);
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: 1.5px 1px rgb(74, 89, 255);
+    }
+    p {
+        margin-left: 400px;
+    }
+    hr {
+        margin-left: 300px;
+        margin-right: 300PX;
+    }
+    nav {
+        margin-left: 200px
+    }
+    div {
+        margin-left: 320px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+    a {
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+    }
+    a.hover {
+        text-decoration: none;
+        color: aqua;
+    }
+    span {
+        margin-left: 480px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 23px;
+        display: flex;
+        gap: 30px;
+        text-align: center;
+    }
+    td {
+        margin-left: 30px;
+    }
+</style>
 <body>
-    <h1>homepage</h1>
-    <hr>
-    <h3>과제용 파일</h3>
+    <header>
+        <h1>Minju's Portfolio</h1>
+        <hr>
+        <span>
+            <a href="#intro">introduction</a>
+            <a href="#profile">profile</a>
+            <a href="#portfolio">portfolio</a>
+            <a href ="#photo">photo</a>
+            <a href = "#video">video</a>
+        </span>
+    </header>
+    <section>
+        <div>
+            <h3 id = "intro">Introduction</h3>
+            <table>
+                <tbody>
+                    <tr><td><img src= "Image/profile.jpg" width="200px"></td><td>이름: 박민주 <br>학력: 상명대학교<br><br><br><br><br><br><br><br><br><br>
+                    </td></tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <div>
+            <h3 id = "profile">profile</h3><br><br>
+        </div>
+        <div>
+            <h3 id = "portfolio">Portfolio</h3><br><br>
+        </div>
+        <div>
+            <h3 id = "photo">Photo</h3><br><br>
+        </div>
+        <div>
+            <h3 id = "video">Video</h3><br><br>
+        </div>
+    </section>
 </body>
-</html>>
+</html>
