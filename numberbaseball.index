@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 야구</title>
+    <style>
+        input[type =text] {
+            border: 2.2px solid rgb(97, 97, 235);
+            border-radius: 5px;
+            width: 353px;
+            height: 24px;
+        }
+        div {
+            padding: 0.1px;
+            font-size: 20px;
+            margin-top: 0.1px
+        }
+        pre {
+            margin-top: 0.1px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body {
+            margin-left: 500px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>숫자 야구</h1>
+    <p>
+        규칙<br>
+        1. 컴퓨터가 무작위로 내는 세 자리 숫자를 맞추는 게임입니다.<br>
+        2. 숫자와 위치 모두 맞으면 S(스트라이크)<br>
+        3. 숫자의 위치가 다르면 B(볼)<br>
+        4. 숫자도 틀리면 O(아웃)<br>
+        5. 위 과정을 통해 숫자를 맞추면 게임 클리어!
+    </p>
+    <div id="Msg" style="white-space: pre;"></div>
+    <input type="text" id="guessNum" placeholder="ex) 123" maxlength="3">
+    <button onclick="newGame()" style="height: 29px;">입력</button>
+    <div id="result"></div>
+
+    <script>
+        let answer = [];
+        let tries = 0;
+
+        function getAnswer() {
+            let digits = [];
+            while (digits.length < 3) {
+                const num = Math.floor(Math.random() * 10);
+                if (!digits.includes(num)) {
+                    digits.push(num);
+                }
+            }
+            return digits;
+        }
+
+        function startGame() {
+            answer = getAnswer();
+            tries = 0;
+        }
+
+        function newGame() {
+            const input = document.getElementById("guessNum").value; 
+            const guess = input.split('').map(Number);
+
+            if (guess.length !== 3 || new Set(guess).size !== 3 || guess.some(isNaN)) {
+                document.getElementById("result").textContent = "서로 다른 숫자 3자리를 입력하세요.";
+                return;
+            }
+
+            tries++;
+            let strike = 0, ball = 0, out = 0;
+
+            for (let i = 0; i < 3; i++) {
+                if (guess[i] === answer[i]) {
+                    strike++;
+                } else if (answer.includes(guess[i])) {
+                    ball++;
+                } else {
+                    out++;
+                }
+            }
+
+            let Msg = document.createElement("pre")
+            if (strike === 3) {
+                Msg.textContent = `정답입니다! ${tries}번 만에 맞췄습니다.`;
+            } else {
+                Msg.textContent = `${tries}: ${input}    S: ${strike}, B: ${ball}, O: ${out}`;
+            }
+            document.getElementById("result").appendChild(Msg);
+            document.getElementById("guessNum").value = "";
+        }
+        startGame();
+    </script>
+</body>
+</html>
