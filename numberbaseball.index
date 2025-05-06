@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>숫자 야구</title>
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- PWA 테마 색상 설정 -->
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" href="favicon.ico" sizes="192x192" type="image/x-icon">
+
     <style>
         input[type =text] {
             border: 2.2px solid rgb(97, 97, 235);
@@ -89,7 +96,7 @@
 
             let Msg = document.createElement("pre")
             if (strike === 3) {
-                Msg.textContent = `정답입니다! ${tries}번 만에 맞췄습니다.`;
+                Msg.textContent = `${guess} 정답입니다! ${tries}번 만에 맞췄습니다.`;
             } else {
                 Msg.textContent = `${tries}: ${input}    S: ${strike}, B: ${ball}, O: ${out}`;
             }
